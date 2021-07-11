@@ -1,0 +1,17 @@
+import speedtest
+import tkinter as tk
+test = speedtest.Speedtest()
+print("___________________________________________________________________________________________")
+print("Server listesi yükleniyor ...")
+test.get_servers()
+print("___________________________________________________________________________________________")
+print("en iyi server listesi aranıyor")
+eniyiserver=test.get_best_server()
+print("___________________________________________________________________________________________")
+print(f"bulunan server bilgileri :  , {eniyiserver['country']}, host: {eniyiserver['host']}")
+download=test.download()
+print("___________________________________________________________________________________________")
+print(f"Download:  {download / 1024 / 1024:.2f}")
+upload=test.upload()
+print("___________________________________________________________________________________________")
+print(f"upload:  {upload / 1024 / 1024:.2f}")
